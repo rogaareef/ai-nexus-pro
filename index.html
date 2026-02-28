@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>AI NEXUS PRO | Global SEO, SciSpace & AI Humanizer</title>
+    <meta name="description" content="Global AI hub for SEO, SciSpace research, and AI Humanizer. High-CPC tools for creators and researchers worldwide. البديل الاحترافي المجاني للأبحاث والسيو وأنسنة النصوص.">
+    <meta name="keywords" content="SEO Optimizer, Code Debugger, SciSpace, NotebookLM, AI Humanizer, Viral Ideas, Gogo24173">
+    <style>
+        :root{--p:#6366f1;--tr:#fbbf24;--sc:#10b981;--bg:#0b0f1a;--card:#1e293b;--text:#f8fafc;--gold:#ffd700}
+        *{box-sizing:border-box;transition:.3s;font-family:'Segoe UI', Tahoma, Geneva, sans-serif}
+        body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:12px 5%;background:rgba(15,23,42,.98);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:1000}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-weight:900;font-size:24px}
+        .icon{width:40px;height:40px;background:linear-gradient(135deg,var(--p),var(--tr));border-radius:12px;display:flex;justify-content:center;align-items:center;box-shadow:0 0 15px rgba(99,102,241,0.4)}
+        .container{max-width:1200px;margin:auto;padding:20px}
+        .hero{text-align:center;padding:60px 0}
+        .hero h1{font-size:3.5rem;background:linear-gradient(90deg,var(--gold),#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5))}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:25px;margin-top:40px}
+        .card{background:var(--card);padding:30px;border-radius:25px;border:1px solid rgba(255,255,255,0.05);position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+        .card:hover{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 20px 40px rgba(255,215,0,0.1)}
+        .badge{background:var(--gold);color:#000;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:bold;position:absolute;top:20px;left:20px}
+        h3{margin:0 0 15px 0;font-size:20px;color:var(--tr);display:flex;align-items:center;gap:10px}
+        textarea{width:100%;height:120px;background:#070b14;border:1px solid rgba(255,255,255,0.1);border-radius:15px;color:#fff;padding:15px;margin:15px 0;resize:none;font-size:15px}
+        textarea:focus{border-color:var(--gold);outline:none}
+        .btn-group{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .btn{padding:14px;border-radius:12px;border:none;font-weight:800;cursor:pointer;font-size:13px;color:#fff;display:flex;justify-content:center;align-items:center;gap:8px}
+        .btn-p{background:var(--p)}.btn-sc{background:var(--sc)}.btn-gold{background:linear-gradient(90deg,var(--gold),#daa520);color:#000}
+        .btn:hover{transform:scale(1.03);filter:brightness(1.1)}
+        #res{margin-top:35px;padding:25px;background:#161b22;border-radius:20px;border:2px dashed var(--gold);display:none;white-space:pre-wrap;animation:slideUp .5s;font-size:16px;line-height:1.8}
+        @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .loader{display:none;width:40px;height:40px;border:4px solid rgba(255,255,255,.1);border-top:4px solid var(--gold);border-radius:50%;animation:sp 1s linear infinite;margin:30px auto}
+        @keyframes sp{to{transform:rotate(360deg)}}
+        footer{text-align:center;padding:60px;color:#94a3b8;font-size:14px;border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;background:#070b14}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo"><div class="icon">⚡</div> AI NEXUS PRO</a>
+        <div style="background:rgba(255,215,0,0.1);padding:8px 18px;border-radius:20px;border:1px solid var(--gold);color:var(--gold);font-weight:bold;font-size:14px">
+            Global Admin: Gogo24173@gmail.com
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <h1>Global AI Jet Engine 🚀</h1>
+            <p>أدوات تقنية عالية الربح (High-CPC) موجهة للعالم أجمع من بريدك الشخصي.</p>
+        </div>
+        <div class="grid">
+            <div class="card"><span class="badge">REVENUE GOLD</span><h3>💎 AdSense Gold Suite</h3><textarea id="t1" placeholder="Enter content for SEO Optimization or Viral Ideas..."></textarea>
+                <div class="btn-group"><button class="btn btn-gold" onclick="run('seo')">SEO Optimizer</button><button class="btn btn-p" onclick="run('viral')">Viral Ideas</button></div>
+            </div>
+            <div class="card"><h3>🔬 Academic Research</h3><textarea id="t2" placeholder="SciSpace & NotebookLM Mode: Paste papers or topics..."></textarea>
+                <div class="btn-group"><button class="btn btn-sc" onclick="run('scispace')">SciSpace AI</button><button class="btn btn-p" onclick="run('notebook')">NotebookLM</button></div>
+            </div>
+            <div class="card"><h3>🛡️ Integrity & Ethics</h3><textarea id="t3" placeholder="AI Humanizer & Plagiarism Detection..."></textarea>
+                <div class="btn-group"><button class="btn btn-sc" onclick="run('humanize')">AI to Human</button><button class="btn btn-p" onclick="run('plagiarism')">Originality</button></div>
+            </div>
+            <div class="card"><h3>🌐 Global Tech Hub</h3><textarea id="t4" placeholder="Code Debugger & Security Audit..."></textarea>
+                <div class="btn-group"><button class="btn btn-p" onclick="run('debug')">AI Debugger</button><button class="btn btn-sc" style="background:#e11d48" onclick="run('security')">Security Audit</button></div>
+            </div>
+        </div>
+        <div class="loader" id="ld"></div><div id="res"></div>
+    </div>
+    <footer>
+        <p>&copy; 2026 AI Nexus Pro | <a href="policy.html" style="color:var(--gold);text-decoration:none">Privacy Policy (GDPR/CCPA)</a></p>
+        <p>Serving USA, Europe, Asia, Australia & The Middle East</p>
+    </footer>
+    <script>
+        async function run(t){
+            const r=document.getElementById('res'),l=document.getElementById('ld');
+            let i=t=='seo'||t=='viral'?document.getElementById('t1').value:t=='scispace'||t=='notebook'?document.getElementById('t2').value:t=='humanize'||t=='plagiarism'?document.getElementById('t3').value:document.getElementById('t4').value;
+            if(!i)return alert("Input Required!"); r.style.display='none';l.style.display='block';
+            try{
+                // استبدل الرابط أدناه برابط Render الخاص بك بعد الرفع
+                const s=await fetch('https://your-api-on-render.com/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:i,type:t})});
+                const d=await s.json();r.innerText=d.result;r.style.display='block';
+            }catch(e){r.innerText="Connection Ready! Please deploy your server.js on Render to activate Global AI.";r.style.display='block'}finally{l.style.display='none'}
+        }
+    </script>
+</body>
+</html>
