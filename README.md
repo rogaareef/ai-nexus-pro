@@ -28,6 +28,7 @@ This project is engineered to attract high-CPC (Cost Per Click) traffic from the
 4. **Revenue:** Add your AdSense code and start global marketing.
 
 ---
+ai-tools, scispace-alternative, seo-optimizer, ai-humanizer, saas, adsense-ready.
 
 ### 📧 Support & Contact
 **Developer:** Admin of AI Nexus Pro  
