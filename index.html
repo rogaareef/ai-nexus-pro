@@ -53,7 +53,35 @@
     </div>
 </div>
     <textarea id="aiInput" class="w-full h-40 bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-white focus:border-blue-500 outline-none transition" placeholder="ضع النص الطويل هنا ليقوم الذكاء الاصطناعي بتلخيصه أو إعادة صياغته باحترافية..."></textarea>
+    <div class="glass p-8 rounded-3xl border border-purple-500/30 mb-10 shadow-xl">
+    <div class="flex items-center gap-3 mb-6">
+        <div class="bg-purple-500 p-2 rounded-lg">
+            <i class="fas fa-palette text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white">مُولد الصور بالذكاء الاصطناعي</h3>
+    </div>
     
+    <textarea id="imagePrompt" class="w-full h-32 bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-white focus:border-purple-500 outline-none transition" placeholder="اكتب وصفاً مفصلاً للصورة التي تريد أن ينشئها الذكاء الاصطناعي (مثال: قطة فضائية ترتدي بزة رائد فضاء وتلعب بكرة ملونة في الفضاء الخارجي...)"></textarea>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+        <button onclick="generateImage('photo')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/20">صورة واقعية</button>
+        <button onclick="generateImage('art')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-indigo-500/20">رسم فني</button>
+        <button onclick="generateImage('cartoon')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-teal-500/20">شخصية كرتونية</button>
+        <button onclick="generateImage('fantasy')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-pink-500/20">عالم خيالي</button>
+        <button onclick="generateImage('icon')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-orange-500/20">أيقونة/لوجو</button>
+        <button onclick="generateImage('abstract')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-blue-500/20">رسم تجريدي</button>
+    </div>
+
+    <div class="bg-yellow-900/30 border-l-4 border-yellow-500 p-4 rounded-xl mt-8 text-sm text-yellow-300">
+        <i class="fas fa-info-circle ml-2"></i> هذه الأداة قيد التطوير حالياً وستكون متاحة قريباً لإنشاء صور لا حدود لها! تابعونا.
+    </div>
+
+    <div id="imageResultContainer" class="hidden mt-8 p-6 bg-slate-800/80 rounded-2xl border border-purple-400/20 text-center">
+        <h4 class="text-sm text-purple-400 mb-4">الذكاء الاصطناعي يرسم لك:</h4>
+        <img id="generatedImage" src="" alt="صورة تم إنشاؤها بالذكاء الاصطناعي" class="max-w-full h-auto rounded-lg mx-auto mb-4 border border-slate-700">
+        <button onclick="downloadImage()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl transition shadow-md shadow-green-500/20"><i class="fas fa-download ml-2"></i> تحميل الصورة</button>
+    </div>
+</div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
         <button onclick="processAI('summarize')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-blue-500/20">تلخيص النص</button>
         <button onclick="processAI('paraphrase')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/20">إعادة صياغة</button>
@@ -176,6 +204,7 @@
     </script>
 </body>
 </html>
+
 
 
 
