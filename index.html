@@ -1,91 +1,114 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6119422909390809"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI NEXUS PRO - منصة الذكاء الاصطناعي الشاملة</title>
+    <title>AI NEXUS PRO - منصة الذكاء الاصطناعي العربية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-        body { font-family: 'Tajawal', sans-serif; background: #0f172a; color: white; }
+        body { font-family: 'Tajawal', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; }
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-text { background: linear-gradient(to r, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body>
     <nav class="glass sticky top-0 z-50 p-4">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">AI NEXUS PRO</h1>
-            <div class="space-x-4 space-x-reverse">
-                <a href="/" class="hover:text-blue-400">الرئيسية</a>
-                <a href="/policy.html" class="hover:text-blue-400 text-sm">سياسة الخصوصية</a>
+            <h1 class="text-2xl font-bold gradient-text">AI NEXUS PRO</h1>
+            <div class="hidden md:flex space-x-6 space-x-reverse text-sm">
+                <a href="#" class="hover:text-blue-400">الرئيسية</a>
+                <a href="#tools" class="hover:text-blue-400">الأدوات</a>
+                <a href="/policy.html" class="hover:text-blue-400">سياسة الخصوصية</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-12">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-4">مساعدك الذكي للإبداع</h2>
-            <p class="text-gray-400 text-xl">أدوات متطورة لتحسين محركات البحث وكتابة المحتوى بالذكاء الاصطناعي</p>
-        </div>
+    <header class="py-20 text-center">
+        <h2 class="text-5xl font-extrabold mb-4">مستقبل الإبداع بين يديك</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto px-4">حول أفكارك إلى محتوى احترافي، ترجم النصوص، وحسن ترتيبك في محركات البحث باستخدام أقوى تقنيات الذكاء الاصطناعي.</p>
+    </header>
 
-        <div class="max-w-3xl mx-auto glass p-8 rounded-2xl shadow-2xl">
+    <main id="tools" class="container mx-auto px-4 pb-20">
+        <div class="max-w-4xl mx-auto glass p-8 rounded-3xl shadow-2xl border-blue-500/20">
+            
+            <div class="mb-8 flex flex-wrap gap-4 justify-center">
+                <button onclick="setType('Translator', 'مترجم احترافي')" class="tool-btn bg-blue-600 px-6 py-2 rounded-full font-bold">مترجم فوري</button>
+                <button onclick="setType('SEO Expert', 'خبير سيو')" class="tool-btn bg-slate-800 px-6 py-2 rounded-full">محسن محركات البحث</button>
+                <button onclick="setType('Content Writer', 'كاتب محتوى')" class="tool-btn bg-slate-800 px-6 py-2 rounded-full">كاتب مقالات</button>
+            </div>
+
             <div class="mb-6">
-                <label class="block mb-2 text-blue-400">ماذا تريد أن تكتب اليوم؟</label>
-                <textarea id="userInput" class="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 focus:border-blue-500 outline-none h-32" placeholder="مثال: اكتب لي مقالاً عن فوائد الذكاء الاصطناعي..."></textarea>
+                <label id="inputLabel" class="block mb-3 text-blue-400 font-bold">أدخل النص للترجمة أو المعالجة:</label>
+                <textarea id="userInput" class="w-full p-5 rounded-2xl bg-slate-900 border border-slate-700 focus:border-blue-500 outline-none h-40 transition-all" placeholder="اكتب نصك هنا..."></textarea>
             </div>
             
-            <button onclick="generateAI()" id="btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                <i class="fas fa-magic ml-2"></i>
-                <span>توليد المحتوى الآن</span>
+            <button onclick="generateAI()" id="btn" class="w-full bg-gradient-to-l from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 rounded-2xl transition duration-300 transform hover:scale-[1.02]">
+                <i class="fas fa-bolt ml-2"></i>
+                <span id="btnText">بدء المعالجة الذكية</span>
             </button>
 
-            <div id="resultContainer" class="mt-8 hidden">
-                <h3 class="text-blue-400 mb-2">النتيجة:</h3>
-                <div id="output" class="p-4 bg-slate-800 rounded-xl border border-blue-500/30 text-gray-200 leading-relaxed whitespace-pre-wrap"></div>
+            <div id="resultArea" class="mt-10 hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-purple-400 font-bold"><i class="fas fa-check-circle ml-1"></i> النتيجة النهائية:</span>
+                    <button onclick="copyText()" class="text-xs bg-slate-700 px-3 py-1 rounded hover:bg-slate-600">نسخ النص</button>
+                </div>
+                <div id="output" class="p-6 bg-slate-900/80 rounded-2xl border border-blue-500/30 text-gray-100 leading-relaxed whitespace-pre-wrap shadow-inner"></div>
             </div>
         </div>
     </main>
 
-    <footer class="text-center py-8 text-gray-500 border-t border-slate-800 mt-20">
+    <footer class="text-center py-10 text-gray-500 border-t border-slate-800">
         <p>© 2026 AI NEXUS PRO - جميع الحقوق محفوظة</p>
+        <div class="mt-2 space-x-4 space-x-reverse text-sm">
+            <a href="/policy.html" class="hover:underline">سياسة الخصوصية</a>
+        </div>
     </footer>
 
     <script>
+        let currentType = "Translator";
+
+        function setType(type, label) {
+            currentType = type;
+            document.getElementById('inputLabel').innerText = "أدخل النص لـ " + label + ":";
+            document.querySelectorAll('.tool-btn').forEach(b => b.classList.replace('bg-blue-600', 'bg-slate-800'));
+            event.target.classList.replace('bg-slate-800', 'bg-blue-600');
+        }
+
         async function generateAI() {
-            const input = document.getElementById('userInput').value;
+            const prompt = document.getElementById('userInput').value;
             const output = document.getElementById('output');
-            const container = document.getElementById('resultContainer');
-            const btn = document.getElementById('btn');
+            const resultArea = document.getElementById('resultArea');
+            const btnText = document.getElementById('btnText');
 
-            if(!input) return alert("يرجى كتابة شيء ما!");
+            if(!prompt) return alert("يرجى كتابة نص أولاً!");
 
-            btn.disabled = true;
-            btn.innerHTML = "جاري المعالجة...";
-
+            btnText.innerText = "جاري العمل...";
+            
             try {
                 const response = await fetch('https://gogo24173-ai-nexus-server.hf.space/api/generate', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ prompt: input, type: "General Content Creator" })
+                    body: JSON.stringify({ prompt: prompt, type: currentType })
                 });
 
                 const data = await response.json();
-                container.classList.remove('hidden');
-                output.innerText = data.result || "حدث خطأ في جلب البيانات.";
+                resultArea.classList.remove('hidden');
+                output.innerText = data.result || "عذراً، لم نتمكن من جلب النتيجة.";
+                window.scrollTo(0, document.body.scrollHeight);
             } catch (err) {
-                alert("السيرفر لا يستجيب، تأكد من أن Hugging Face في وضع Running");
+                alert("السيرفر لا يستجيب، تأكد من أن Hugging Face باللون الأخضر!");
             } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-magic ml-2"></i><span>توليد المحتوى الآن</span>';
+                btnText.innerText = "بدء المعالجة الذكية";
             }
+        }
+
+        function copyText() {
+            const text = document.getElementById('output').innerText;
+            navigator.clipboard.writeText(text);
+            alert("تم نسخ النص بنجاح!");
         }
     </script>
 </body>
 </html>
-
-
-
-
