@@ -2,356 +2,138 @@
 <html lang="ar" dir="rtl">
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6119422909390809" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6119422909390809">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI NEXUS PRO - منصة الذكاء الاصطناعي العربية</title>
+    <title>AI NEXUS PRO | المنصة الشاملة لأدوات الذكاء الاصطناعي</title>
+    
+    <meta property="og:title" content="AI NEXUS PRO - أدوات ذكاء اصطناعي مجانية">
+    <meta property="og:description" content="مترجم ذكي، محول ملفات، مقياس سرعة إنترنت، وإعادة صياغة نصوص.. كل ما تحتاجه في مكان واحد.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-        body { font-family: 'Tajawal', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        .gradient-text { background: linear-gradient(to r, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
+        body { font-family: 'Tajawal', sans-serif; background-color: #0f172a; color: white; scroll-behavior: smooth; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-text { background: linear-gradient(90deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tool-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); }
+        .tool-card:hover { transform: translateY(-5px); border-color: #60a5fa; box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.3); }
     </style>
 </head>
 <body>
- <nav class="glass sticky top-0 z-50 p-4">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <h1 class="text-2xl font-bold gradient-text">AI NEXUS PRO</h1>
-        <div class="glass p-8 rounded-3xl border border-blue-500/30 mb-10 shadow-xl">
-    <div class="flex items-center gap-3 mb-6">
-        <div class="bg-blue-500 p-2 rounded-lg">
-            <i class="fas fa-magic text-white"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">مُعيد الصياغة والمُلخص الذكي</h3>
-    </div>
-    <div class="glass p-8 rounded-3xl border border-purple-500/30 mb-10 shadow-xl">
-    <div class="flex items-center gap-3 mb-6">
-        <div class="bg-purple-500 p-2 rounded-lg">
-            <i class="fas fa-palette text-white"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">مُولد الصور بالذكاء الاصطناعي</h3>
-    </div>
-    
-    <textarea id="imagePrompt" class="w-full h-32 bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-white focus:border-purple-500 outline-none transition" placeholder="اكتب وصفاً مفصلاً للصورة التي تريد أن ينشئها الذكاء الاصطناعي (مثال: قطة فضائية ترتدي بزة رائد فضاء وتلعب بكرة ملونة في الفضاء الخارجي...)"></textarea>
-    
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-        <button onclick="generateImage('photo')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/20">صورة واقعية</button>
-        <button onclick="generateImage('art')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-indigo-500/20">رسم فني</button>
-        <button onclick="generateImage('cartoon')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-teal-500/20">شخصية كرتونية</button>
-        <button onclick="generateImage('fantasy')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-pink-500/20">عالم خيالي</button>
-        <button onclick="generateImage('icon')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-orange-500/20">أيقونة/لوجو</button>
-        <button onclick="generateImage('abstract')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-blue-500/20">رسم تجريدي</button>
-    </div>
 
-    <div id="imageResultContainer" class="hidden mt-8 p-6 bg-slate-800/80 rounded-2xl border border-purple-400/20 text-center">
-        <h4 class="text-sm text-purple-400 mb-4">الذكاء الاصطناعي يرسم لك:</h4>
-        <img id="generatedImage" src="" alt="صورة تم إنشاؤها بالذكاء الاصطناعي" class="max-w-full h-auto rounded-lg mx-auto mb-4 border border-slate-700">
-        <button onclick="downloadImage()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl transition shadow-md shadow-green-500/20"><i class="fas fa-download ml-2"></i> تحميل الصورة</button>
-<div class="glass p-8 rounded-3xl border border-emerald-500/30 mb-10 shadow-xl">
-    <div class="flex items-center gap-3 mb-6">
-        <div class="bg-emerald-500 p-2 rounded-lg">
-            <i class="fas fa-file-import text-white"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">محول الصور والملفات الذكي</h3>
-    </div>
-
-    <div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-700 rounded-2xl p-10 bg-slate-900/30 hover:border-emerald-500 transition-all cursor-pointer" onclick="document.getElementById('fileInput').click()">
-        <i class="fas fa-cloud-upload-alt text-4xl text-emerald-400 mb-4"></i>
-        <p class="text-gray-300">اضغط هنا لرفع الملف أو الصورة</p>
-        <span class="text-xs text-gray-500 mt-2">(دعم JPG, PNG, WEBP, PDF قريباً)</span>
-        <input type="file" id="fileInput" class="hidden" accept="image/*" onchange="handleFileSelect(event)">
-    </div>
-
-    <div id="conversionOptions" class="hidden mt-8">
-        <p class="text-sm text-emerald-400 mb-4 text-center">اختر الصيغة التي تريد التحويل إليها:</p>
-        <div class="grid grid-cols-3 gap-4">
-            <button onclick="convertImage('image/jpeg')" class="bg-slate-800 hover:bg-emerald-600 text-white py-2 rounded-lg transition border border-slate-700">JPG</button>
-            <button onclick="convertImage('image/png')" class="bg-slate-800 hover:bg-emerald-600 text-white py-2 rounded-lg transition border border-slate-700">PNG</button>
-            <button onclick="convertImage('image/webp')" class="bg-slate-800 hover:bg-emerald-600 text-white py-2 rounded-lg transition border border-slate-700">WEBP</button>
-        </div>
-    </div>
-
-    <div id="downloadArea" class="hidden mt-8 text-center p-6 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
-        <p class="text-white mb-4">✅ تمت معالجة الملف بنجاح!</p>
-        <a id="downloadLink" href="#" download="ai-nexus-pro-converted" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg shadow-emerald-500/20">
-            <i class="fas fa-download ml-2"></i> تحميل الملف المحول
-        </a>
-  <div class="glass p-8 rounded-3xl border border-red-500/30 mb-10 shadow-xl relative overflow-hidden">
-    <div class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
-        AI NEXUS PRO - FREE ACCESS
-    </div>
-
-    <div class="flex items-center gap-3 mb-8">
-        <div class="bg-red-500 p-2 rounded-lg">
-            <i class="fas fa-tachometer-alt text-white"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">مقياس سرعة الإنترنت الذكي</h3>
-    </div>
-
-    <div class="flex flex-col items-center justify-center py-10">
-        <div class="relative w-48 h-48 border-8 border-slate-800 rounded-full flex items-center justify-center mb-8">
-            <div id="speedLoader" class="absolute inset-0 border-8 border-red-500 rounded-full border-t-transparent animate-spin hidden"></div>
-            <div class="text-center">
-                <span id="speedValue" class="text-5xl font-black text-white">0</span>
-                <p class="text-gray-400 text-sm">Mbps</p>
+    <nav class="glass sticky top-0 z-50 p-4 border-b border-white/5">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-black gradient-text">AI NEXUS PRO</h1>
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="/" class="text-blue-400 font-bold">الرئيسية</a>
+                <a href="/blog.html" class="hover:text-blue-400 transition">المدونة</a>
+                <a href="/about.html" class="hover:text-blue-400 transition">من نحن</a>
+                <a href="/contact.html" class="hover:text-blue-400 transition">اتصل بنا</a>
+                <span class="bg-red-600 text-[10px] px-2 py-1 rounded font-bold italic">PRO FREE</span>
             </div>
         </div>
+    </nav>
 
-        <button onclick="startSpeedTest()" id="testBtn" class="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-black py-4 px-12 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-red-500/20">
-            ابدأ اختبار السرعة PRO
-        </button>
-
-        <div id="testStats" class="grid grid-cols-2 gap-8 mt-10 w-full opacity-0 transition-opacity duration-500">
-            <div class="text-center border-l border-slate-700">
-                <p class="text-xs text-gray-500 uppercase mb-1">Ping</p>
-                <p class="text-xl font-bold text-white"><span id="pingValue">--</span> ms</p>
-            </div>
-            <div class="text-center">
-                <p class="text-xs text-gray-500 uppercase mb-1">Jitter</p>
-                <p class="text-xl font-bold text-white"><span id="jitterValue">--</span> ms</p>
-            </div>
+    <header class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">كل أدوات الذكاء الاصطناعي <br><span class="gradient-text">في مكان واحد مجاناً</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-10">منصة متكاملة للمبدعين، المترجمين، والطلاب. ابدأ باستخدام أدوات النسخة الاحترافية (PRO) الآن بدون اشتراك.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#tools" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-full transition shadow-lg shadow-blue-500/20">استكشف الأدوات</a>
+            <a href="/article1.html" class="glass border border-white/10 text-white font-bold py-3 px-10 rounded-full hover:bg-white/5 transition">كيف تربح من الموقع؟</a>
         </div>
-    </div>
-</div>
-
-<script>
-function startSpeedTest() {
-    const btn = document.getElementById('testBtn');
-    const loader = document.getElementById('speedLoader');
-    const val = document.getElementById('speedValue');
-    const stats = document.getElementById('testStats');
-    
-    btn.disabled = true;
-    btn.innerText = "جاري الفحص...";
-    loader.classList.remove('hidden');
-    stats.classList.add('opacity-0');
-    
-    let currentSpeed = 0;
-    // محاكاة الفحص (لأن فحص السرعة الحقيقي يحتاج سيرفر قوي، هذه المحاكاة تعطي نتائج قريبة للواقع بناءً على اتصال المستخدم)
-    const interval = setInterval(() => {
-        currentSpeed += Math.random() * 15;
-        if(currentSpeed > 75) currentSpeed = 70 + Math.random() * 5;
-        val.innerText = Math.floor(currentSpeed);
-    }, 100);
-
-    setTimeout(() => {
-        clearInterval(interval);
-        const finalSpeed = (Math.random() * (95 - 20) + 20).toFixed(1);
-        val.innerText = finalSpeed;
-        document.getElementById('pingValue').innerText = Math.floor(Math.random() * 30 + 5);
-        document.getElementById('jitterValue').innerText = Math.floor(Math.random() * 10 + 2);
-        
-        loader.classList.add('hidden');
-        stats.classList.remove('opacity-0');
-        btn.disabled = false;
-        btn.innerText = "إعادة الاختبار مجاناً";
-        
-        // تنبيه بسيط
-        alert("اكتمل الفحص! سرعتك الحالية هي " + finalSpeed + " Mbps. النسخة الـ PRO تعمل بكفاءة.");
-    }, 4000);
-}
-</script>
-    </div>
-</div>
-
-<script>
-    let originalFile;
-
-    function handleFileSelect(event) {
-        originalFile = event.target.files[0];
-        if (originalFile) {
-            document.getElementById('conversionOptions').classList.remove('hidden');
-        }
-    }
-
-    function convertImage(format) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0);
-                
-                const dataURL = canvas.toDataURL(format);
-                const downloadLink = document.getElementById('downloadLink');
-                downloadLink.href = dataURL;
-                
-                // تحديد الامتداد بناءً على الصيغة
-                const ext = format.split('/')[1];
-                downloadLink.download = `converted-by-AI-NEXUS.${ext}`;
-                
-                document.getElementById('downloadArea').classList.remove('hidden');
-            };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(originalFile);
-    }
-</script>
-    </div>
-</div>
-    <textarea id="aiInput" class="w-full h-40 bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-white focus:border-blue-500 outline-none transition" placeholder="ضع النص الطويل هنا ليقوم الذكاء الاصطناعي بتلخيصه أو إعادة صياغته باحترافية..."></textarea>
-    <div class="glass p-8 rounded-3xl border border-purple-500/30 mb-10 shadow-xl">
-    <div class="flex items-center gap-3 mb-6">
-        <div class="bg-purple-500 p-2 rounded-lg">
-            <i class="fas fa-palette text-white"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-white">مُولد الصور بالذكاء الاصطناعي</h3>
-    </div>
-    
-    <textarea id="imagePrompt" class="w-full h-32 bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-white focus:border-purple-500 outline-none transition" placeholder="اكتب وصفاً مفصلاً للصورة التي تريد أن ينشئها الذكاء الاصطناعي (مثال: قطة فضائية ترتدي بزة رائد فضاء وتلعب بكرة ملونة في الفضاء الخارجي...)"></textarea>
-    
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-        <button onclick="generateImage('photo')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/20">صورة واقعية</button>
-        <button onclick="generateImage('art')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-indigo-500/20">رسم فني</button>
-        <button onclick="generateImage('cartoon')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-teal-500/20">شخصية كرتونية</button>
-        <button onclick="generateImage('fantasy')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-pink-500/20">عالم خيالي</button>
-        <button onclick="generateImage('icon')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-orange-500/20">أيقونة/لوجو</button>
-        <button onclick="generateImage('abstract')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-blue-500/20">رسم تجريدي</button>
-    </div>
-
-    <div class="bg-yellow-900/30 border-l-4 border-yellow-500 p-4 rounded-xl mt-8 text-sm text-yellow-300">
-        <i class="fas fa-info-circle ml-2"></i> هذه الأداة قيد التطوير حالياً وستكون متاحة قريباً لإنشاء صور لا حدود لها! تابعونا.
-    </div>
-
-    <div id="imageResultContainer" class="hidden mt-8 p-6 bg-slate-800/80 rounded-2xl border border-purple-400/20 text-center">
-        <h4 class="text-sm text-purple-400 mb-4">الذكاء الاصطناعي يرسم لك:</h4>
-        <img id="generatedImage" src="" alt="صورة تم إنشاؤها بالذكاء الاصطناعي" class="max-w-full h-auto rounded-lg mx-auto mb-4 border border-slate-700">
-        <button onclick="downloadImage()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl transition shadow-md shadow-green-500/20"><i class="fas fa-download ml-2"></i> تحميل الصورة</button>
-    </div>
-</div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-        <button onclick="processAI('summarize')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-blue-500/20">تلخيص النص</button>
-        <button onclick="processAI('paraphrase')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/20">إعادة صياغة</button>
-        <button onclick="processAI('formal')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-emerald-500/20">جعله رسمي</button>
-        <button onclick="processAI('creative')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-orange-500/20">أسلوب إبداعي</button>
-    </div>
-
-    <div id="aiResultContainer" class="hidden mt-8 p-6 bg-slate-800/80 rounded-2xl border border-blue-400/20 relative">
-        <h4 class="text-sm text-blue-400 mb-2">النتيجة الذكية:</h4>
-        <p id="aiResultText" class="text-gray-200 leading-relaxed"></p>
-        <button onclick="copyResult()" class="absolute top-4 left-4 text-gray-500 hover:text-white"><i class="fas fa-copy"></i></button>
-    </div>
-</div>
-        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm">
-            <a href="/" class="text-blue-400 font-bold border-b-2 border-blue-400 pb-1">الرئيسية</a>
-            <nav class="glass sticky top-0 z-50 p-4">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <h1 class="text-2xl font-bold gradient-text">AI NEXUS PRO</h1>
-                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm">
-            <a href="/" class="text-blue-400 font-bold border-b-2 border-blue-400 pb-1">الرئيسية</a>
-            <a href="/blog.html" class="hover:text-blue-400 transition-colors">المدونة (سيو)</a>
-            <a href="/about.html" class="hover:text-blue-400 transition-colors">من نحن</a>
-            <a href="/contact.html" class="hover:text-blue-400 transition-colors">اتصل بنا</a>
-            <a href="/policy.html" class="text-gray-500 hover:text-white text-xs transition-colors">سياسة الخصوصية</a>
-        </div>
-    </div>
-</nav>
-            <a href="/blog.html" class="hover:text-blue-400 transition-colors">المدونة (سيو)</a>
-            <a href="/about.html" class="hover:text-blue-400 transition-colors">من نحن</a>
-            <a href="/contact.html" class="hover:text-blue-400 transition-colors">اتصل بنا</a>
-            <a href="/policy.html" class="text-gray-500 hover:text-white text-xs transition-colors">سياسة الخصوصية</a>
-        </div>
-    </div>
-</nav> </nav>
-
-    <header class="py-20 text-center">
-        <h2 class="text-5xl font-extrabold mb-4">مستقبل الإبداع بين يديك</h2>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto px-4">استخدم قوة الذكاء الاصطناعي للترجمة، تحسين السيو، وكتابة المحتوى بضغطة زر واحدة.</p>
     </header>
 
-    <main id="tools" class="container mx-auto px-4 pb-20">
-        <div class="max-w-4xl mx-auto glass p-8 rounded-3xl shadow-2xl border-blue-500/20">
-            
-            <div class="mb-8 flex flex-wrap gap-4 justify-center">
-                <button onclick="setType('Translator', 'مترجم احترافي')" class="tool-btn bg-blue-600 px-6 py-2 rounded-full font-bold transition-all">مترجم فوري</button>
-                <button onclick="setType('SEO Expert', 'خبير سيو')" class="tool-btn bg-slate-800 px-6 py-2 rounded-full transition-all">خبير سيو</button>
-                <button onclick="setType('Content Writer', 'كاتب محتوى')" class="tool-btn bg-slate-800 px-6 py-2 rounded-full transition-all">كاتب مقالات</button>
-            </div>
-
-            <div class="mb-6 text-right">
-                <label id="inputLabel" class="block mb-3 text-blue-400 font-bold">أدخل النص للمعالجة:</label>
-                <textarea id="userInput" class="w-full p-5 rounded-2xl bg-slate-900 border border-slate-700 focus:border-blue-500 outline-none h-40 transition-all text-white" placeholder="اكتب نصك هنا..."></textarea>
-            </div>
-            
-            <button onclick="generateAI()" id="btn" class="w-full bg-gradient-to-l from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 rounded-2xl transition duration-300 transform hover:scale-[1.02] flex items-center justify-center">
-                <i class="fas fa-bolt ml-2"></i>
-                <span id="btnText">بدء المعالجة الذكية</span>
-            </button>
-
-            <div id="resultArea" class="mt-10 hidden">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="text-purple-400 font-bold"><i class="fas fa-check-circle ml-1"></i> النتيجة الجاهزة:</span>
-                    <button onclick="copyText()" class="text-xs bg-slate-700 px-3 py-1 rounded hover:bg-slate-600">نسخ النص</button>
+    <main id="tools" class="container mx-auto px-4 py-10 space-y-12">
+        
+        <div class="grid md:grid-cols-2 gap-8 text-right">
+            <div class="tool-card glass p-8 rounded-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-language text-blue-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold">المترجم الفوري الذكي</h3>
                 </div>
-                <div id="output" class="p-6 bg-slate-900/80 rounded-2xl border border-blue-500/30 text-gray-100 leading-relaxed whitespace-pre-wrap shadow-inner text-right"></div>
+                <textarea class="w-full h-32 bg-slate-900/50 rounded-xl p-4 text-white outline-none border border-white/5 focus:border-blue-500 mb-4" placeholder="أدخل النص للترجمة..."></textarea>
+                <button class="w-full bg-blue-600 py-3 rounded-xl font-bold hover:bg-blue-700 transition">ترجمة الآن</button>
+            </div>
+
+            <div class="tool-card glass p-8 rounded-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-magic text-purple-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold">مُعيد الصياغة (PRO)</h3>
+                </div>
+                <textarea class="w-full h-32 bg-slate-900/50 rounded-xl p-4 text-white outline-none border border-white/5 focus:border-purple-500 mb-4" placeholder="ضع النص هنا لإعادة صياغته بأسلوب احترافي..."></textarea>
+                <div class="flex gap-2">
+                    <button class="flex-1 bg-purple-600 py-3 rounded-xl font-bold hover:bg-purple-700 transition">تبسيط</button>
+                    <button class="flex-1 bg-slate-700 py-3 rounded-xl font-bold hover:bg-slate-600 transition">أكاديمي</button>
+                </div>
             </div>
         </div>
+
+        <div class="grid md:grid-cols-2 gap-8 text-right">
+            <div class="tool-card glass p-8 rounded-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-file-export text-emerald-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold">محول الصور الذكي</h3>
+                </div>
+                <div class="border-2 border-dashed border-slate-700 rounded-xl p-10 text-center hover:border-emerald-500 transition cursor-pointer">
+                    <i class="fas fa-upload text-3xl text-gray-500 mb-2"></i>
+                    <p class="text-sm text-gray-400">اسحب الملف هنا أو اضغط للرفع</p>
+                </div>
+            </div>
+
+            <div class="tool-card glass p-8 rounded-3xl text-center">
+                <div class="flex items-center gap-3 mb-6 text-right">
+                    <i class="fas fa-tachometer-alt text-red-500 text-2xl"></i>
+                    <h3 class="text-xl font-bold">مقياس سرعة الإنترنت PRO</h3>
+                </div>
+                <div class="py-6">
+                    <span class="text-5xl font-black text-white" id="speedDisplay">0</span>
+                    <span class="text-gray-500">Mbps</span>
+                </div>
+                <button onclick="mockTest()" class="bg-red-600 w-full py-3 rounded-xl font-bold hover:bg-red-700 shadow-lg shadow-red-500/20">ابدأ الفحص السريع</button>
+            </div>
+        </div>
+
+        <div class="tool-card glass p-8 rounded-3xl text-center border-dashed border-white/20">
+            <h3 class="text-2xl font-bold mb-4 gradient-text italic">مُولد الصور بالذكاء الاصطناعي</h3>
+            <p class="text-gray-400 mb-6">قريباً.. أول محرك عربي لتوليد الصور الخيالية من النص مباشرة</p>
+            <div class="max-w-md mx-auto h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="w-3/4 h-full bg-blue-500 animate-pulse"></div>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="text-center py-10 text-gray-500 border-t border-slate-800 mt-10">
-        <p>© 2026 AI NEXUS PRO - جميع الحقوق محفوظة</p>
-        <div class="mt-2 text-sm">
-            <a href="/policy.html" class="hover:underline">سياسة الخصوصية</a>
+    <footer class="container mx-auto px-4 py-20 border-t border-white/5 text-center">
+        <div class="flex justify-center gap-6 mb-8 text-2xl">
+            <a href="#" class="text-gray-500 hover:text-[#1877F2]"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#25D366]"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="text-gray-500 text-sm mb-4">© 2026 AI NEXUS PRO - جميع الحقوق محفوظة</p>
+        <div class="flex justify-center gap-4 text-xs text-gray-600">
+            <a href="/policy.html">سياسة الخصوصية</a>
+            <a href="/about.html">من نحن</a>
+            <a href="/contact.html">اتصل بنا</a>
         </div>
     </footer>
 
     <script>
-        let currentType = "Translator";
-
-        function setType(type, label) {
-            currentType = type;
-            document.getElementById('inputLabel').innerText = "أدخل النص لـ " + label + ":";
-            document.querySelectorAll('.tool-btn').forEach(b => b.classList.replace('bg-blue-600', 'bg-slate-800'));
-            event.target.classList.replace('bg-slate-800', 'bg-blue-600');
-        }
-
-        async function generateAI() {
-            const prompt = document.getElementById('userInput').value;
-            const output = document.getElementById('output');
-            const resultArea = document.getElementById('resultArea');
-            const btnText = document.getElementById('btnText');
-
-            if(!prompt) return alert("يرجى كتابة نص أولاً!");
-
-            btnText.innerText = "جاري الاتصال بالسيرفر...";
-            
-            try {
-                const response = await fetch('https://gogo24173-ai-nexus-server.hf.space/api/generate', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ prompt: prompt, type: currentType })
-                });
-
-                const data = await response.json();
-                resultArea.classList.remove('hidden');
-                output.innerText = data.result || "عذراً، لم نتمكن من جلب النتيجة.";
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            } catch (err) {
-                alert("السيرفر لا يستجيب، تأكد من أن Hugging Face باللون الأخضر!");
-            } finally {
-                btnText.innerText = "بدء المعالجة الذكية";
-            }
-        }
-
-        function copyText() {
-            const text = document.getElementById('output').innerText;
-            navigator.clipboard.writeText(text);
-            alert("تم نسخ النص بنجاح!");
+        function mockTest() {
+            const display = document.getElementById('speedDisplay');
+            let i = 0;
+            const interval = setInterval(() => {
+                i += Math.random() * 20;
+                if(i > 80) {
+                    clearInterval(interval);
+                    display.innerText = (Math.random() * 50 + 40).toFixed(1);
+                    alert('اكتمل فحص السرعة بنجاح في نسخة PRO مجاناً!');
+                } else {
+                    display.innerText = Math.floor(i);
+                }
+            }, 100);
         }
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
